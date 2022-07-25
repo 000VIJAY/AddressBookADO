@@ -116,5 +116,23 @@ namespace AddressBookADO
             }
             return contact.FirstName;
         }
+        public int RetrieveNumOfContactByCity()
+        {
+            string select = @"SELECT COUNT (City) FROM Addressbook where City ='Patna'";
+            SqlCommand command = new SqlCommand(select, sql);
+            Contact contact = new Contact();
+            int count =0;
+            sql.Open();
+            try
+            {
+                count = (int)command.ExecuteScalar();
+                Console.WriteLine("No Of Contact in a city: " +count);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return count;
+        }
     }
 }

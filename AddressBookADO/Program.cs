@@ -4,3 +4,4 @@ Book.AddressBookRetrieve();
 Book.InsertContact();
 Book.ContactByDate();
 Book.RetrieveContactByDate();
+Book.RetrieveNumOfContactByCity();

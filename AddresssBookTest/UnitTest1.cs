@@ -11,5 +11,12 @@ namespace AddresssBookTest
             var result = addressBook.RetrieveContactByDate();
             Assert.AreEqual("Nidhi" , result);
         }
+        [TestMethod]
+        public void CountContactByCity()
+        {
+            AddressBook addressBook = new AddressBook();
+            var result = addressBook.RetrieveNumOfContactByCity();
+            Assert.AreEqual(2, result);
+        }
     }
 }
