@@ -23,7 +23,7 @@ namespace AddressBookADO
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         contact.FirstName = reader.GetString(0);
                         contact.LastName = reader.GetString(1);
@@ -34,7 +34,9 @@ namespace AddressBookADO
                         contact.PhoneNumber = Convert.ToDouble(reader.GetInt64(6));
                         contact.Email = reader.GetString(7);
                         contact.type = reader.GetString(8);
-                        Console.WriteLine(" First Name: " + contact.FirstName + " Last Name: " + contact.LastName + " Address: " + contact.Address + " City: " + contact.City + " State : " + contact.State + " Zip: " + contact.Zip + " Phone Number: " + contact.PhoneNumber + " Email: " + contact.Email + " type: " + contact.type);
+                        Console.WriteLine(" First Name: " + contact.FirstName + " Last Name: " + contact.LastName + " Address: " + contact.Address
+                            + " City: " + contact.City + " State : " + contact.State + " Zip: " + contact.Zip + " Phone Number: " + contact.PhoneNumber
+                            + " Email: " + contact.Email + " type: " + contact.type);
                     }
                 }
                 reader.Close();
@@ -44,6 +46,23 @@ namespace AddressBookADO
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        public void InsertContact()
+        {
+            string select = @"Insert into AddressbooK (FirstName ,LastName,Address,City,State,zip,PhoneNumber,Email,type) VALUES( 'Nidhi','Yadav','Jankipuram','Lucknow','Uttar Pradesh',756477,943852854728,'nidhi@gmail.com','Friend')";
+            SqlCommand cmd = new SqlCommand(select, sql);
+            cmd.CommandType = CommandType.Text;
+            sql.Open();
+            try
+            {
+                var con = cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            sql.Close();
         }
     }
 }
