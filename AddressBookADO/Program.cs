@@ -1,1 +1,3 @@
-﻿Console.WriteLine("Welcome to Address Book ");
+﻿using AddressBookADO;
+AddressBook Book = new AddressBook();
+Book.AddressBookRetrieve();
